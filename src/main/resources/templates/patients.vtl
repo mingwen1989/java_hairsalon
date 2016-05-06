@@ -1,0 +1,9 @@
+<h1>Patients:</h1>
+
+<ul>
+  #foreach($patient in $patients)
+   <li>$patient.getLastName(), $patient.getFirstName()</li>
+  #end
+</ul>
+
+<a href="/patients/new">Add a New Patient</a>

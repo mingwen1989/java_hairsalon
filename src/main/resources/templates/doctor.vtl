@@ -1,0 +1,10 @@
+<h1>$doctor.getFirstName() $doctor.getLastName()</h1>
+<h3>Patients</h3>
+<ol>
+#foreach($patient in $doctor.getPatients())
+  <li>$patient.getLastName(), $patient.getFirstName()
+  <ul><li><span style="font-weight: bold;">Date of Birth:</span> $patient.formatBirthday()</li>
+  </ul></li>
+  <hr>
+#end
+</ol>
