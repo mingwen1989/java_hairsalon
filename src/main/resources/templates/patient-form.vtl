@@ -1,4 +1,4 @@
-<h1>New Patient Form</h1>
+<h1>New Client Form</h1>
 <form action="/patients" method="post">
   <div class="form-group">
     <label for="firstName">First Name:</label>
@@ -13,7 +13,7 @@
     <input id="birthday" name="birthday" type="date" class="form-control">
   </div>
   <div class="form-group">
-    <label for="doctor">Doctor:</label>
+    <label for="doctor">Stylist:</label>
     <select id="doctor" name="doctor" class="form-control">
       #foreach($doctor in $doctors)
         <option value="$doctor.getId()">$doctor.getLastName(), $doctor.getFirstName()</option>

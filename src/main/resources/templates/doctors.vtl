@@ -1,14 +1,14 @@
-<h1>Doctors:</h1>
+<h1>Stylists:</h1>
 
 <ul>
   #foreach($doctor in $doctors)
    <li><a href="/doctors/$doctor.getId()">$doctor.getLastName(), $doctor.getFirstName()</a>
     <ul>
-        <li><span style="font-weight: bold;">Number of Patients:</span> $doctor.countPatients()</li>
+        <li><span style="font-weight: bold;">Number of Clients:</span> $doctor.countClients()</li>
     </ul>
     </li>
     <hr>
   #end
 </ul>
 
-<a href="/doctors/new">Add a New Doctor</a>
+<a href="/doctors/new">Add a New Stylist</a>

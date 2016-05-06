@@ -1,13 +1,12 @@
 import java.util.List;
 import org.sql2o.*;
 
-public class Doctor {
+public class Stylist {
   private int id;
   private String first_name;
   private String last_name;
-  private String specialty;
 
-  public Doctor(String first_name, String last_name) {
+  public Stylist(String first_name, String last_name) {
     this.first_name = first_name;
     this.last_name = last_name;
   }
@@ -24,14 +23,14 @@ public class Doctor {
     return id;
   }
 
-  public static List<Doctor> all() {
+  public static List<Stylist> all() {
     String sql = "SELECT * FROM stylists ORDER BY last_name ASC";
     try(Connection con = DB.sql2o.open()) {
-      return con.createQuery(sql).executeAndFetch(Doctor.class);
+      return con.createQuery(sql).executeAndFetch(Stylist.class);
     }
   }
 
-  public Integer countPatients() {
+  public Integer countClients() {
     String sql = "SELECT COUNT(stylistid) FROM clients WHERE stylistid =:id";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql)
@@ -40,12 +39,12 @@ public class Doctor {
     }
   }
 
-  public List<Patient> getPatients() {
+  public List<Client> getClients() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM clients where stylistid=:id";
       return con.createQuery(sql)
       .addParameter("id", this.id)
-      .executeAndFetch(Patient.class);
+      .executeAndFetch(Client.class);
     }
   }
 
@@ -60,12 +59,12 @@ public class Doctor {
     }
   }
 
-  public static Doctor find(int id) {
+  public static Stylist find(int id) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM stylists where id=:id";
       return con.createQuery(sql)
       .addParameter("id", id)
-      .executeAndFetchFirst(Doctor.class);
+      .executeAndFetchFirst(Stylist.class);
     }
   }
 }

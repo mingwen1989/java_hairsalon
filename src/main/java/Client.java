@@ -5,14 +5,14 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Patient {
+public class Client {
   private int id;
   private String first_name;
   private String last_name;
   private int stylistId;
   private String birthdate;
 
-  public Patient(String first_name, String last_name, String birthdate, int stylistId) {
+  public Client(String first_name, String last_name, String birthdate, int stylistId) {
     this.first_name = first_name;
     this.last_name = last_name;
     this.birthdate = birthdate;
@@ -51,10 +51,10 @@ public class Patient {
 
   }
 
-  public static List<Patient> all() {
+  public static List<Client> all() {
     String sql = "SELECT * FROM clients ORDER BY last_name ASC";
     try(Connection con = DB.sql2o.open()) {
-      return con.createQuery(sql).executeAndFetch(Patient.class);
+      return con.createQuery(sql).executeAndFetch(Client.class);
     }
   }
 
@@ -71,13 +71,13 @@ public class Patient {
     }
   }
 
-  public static Patient find(int id) {
+  public static Client find(int id) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM clients where id=:id";
-      Patient patient = con.createQuery(sql)
+      Client Client = con.createQuery(sql)
       .addParameter("id", id)
-      .executeAndFetchFirst(Patient.class);
-      return patient;
+      .executeAndFetchFirst(Client.class);
+      return Client;
     }
   }
 }
