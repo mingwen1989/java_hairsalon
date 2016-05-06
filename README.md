@@ -4,7 +4,7 @@
 
 ## Description
 
-Simple hair salon app that allows you to add stylists and clients.
+Simple hair salon app that allows you to add and display a listing of stylists and each stylist's clients.
 
   In PSQL:  
   CREATE DATABASE hair_salon;  
