@@ -6,10 +6,10 @@
 
 Simple hair salon app that allows you to add stylists and clients.
 
-  In PSQL:
-  CREATE DATABASE hair_salon;
-  CREATE TABLE stylists (id serial PRIMARY KEY, first_name varchar, last_name varchar);
-  CREATE TABLE clients (id serial PRIMARY KEY, first_name varchar, last_name varchar, birthday varchar, stylistid int);
+  In PSQL:  
+  CREATE DATABASE hair_salon;  
+  CREATE TABLE stylists (id serial PRIMARY KEY, first_name varchar, last_name varchar);  
+  CREATE TABLE clients (id serial PRIMARY KEY, first_name varchar, last_name varchar, birthday varchar, stylistid int);  
 
 ## Setup and Installation Requirements
 
