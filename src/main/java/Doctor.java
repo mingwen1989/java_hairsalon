@@ -32,7 +32,7 @@ public class Doctor {
   }
 
   public Integer countPatients() {
-    String sql = "SELECT COUNT(doctorid) FROM clients WHERE doctorid =:id";
+    String sql = "SELECT COUNT(stylistid) FROM clients WHERE stylistid =:id";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql)
       .addParameter("id", this.id)
@@ -42,7 +42,7 @@ public class Doctor {
 
   public List<Patient> getPatients() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM clients where doctorid=:id";
+      String sql = "SELECT * FROM clients where stylistid=:id";
       return con.createQuery(sql)
       .addParameter("id", this.id)
       .executeAndFetch(Patient.class);

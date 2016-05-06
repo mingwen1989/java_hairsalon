@@ -9,14 +9,14 @@ public class Patient {
   private int id;
   private String first_name;
   private String last_name;
-  private int doctorId;
+  private int stylistId;
   private String birthdate;
 
-  public Patient(String first_name, String last_name, String birthdate, int doctorId) {
+  public Patient(String first_name, String last_name, String birthdate, int stylistId) {
     this.first_name = first_name;
     this.last_name = last_name;
     this.birthdate = birthdate;
-    this.doctorId = doctorId;
+    this.stylistId = stylistId;
 
   }
 
@@ -32,8 +32,8 @@ public class Patient {
     return id;
   }
 
-  public int getDoctorId() {
-    return doctorId;
+  public int getStylistId() {
+    return stylistId;
   }
   public String getBirthdate() {
     return birthdate;
@@ -60,12 +60,12 @@ public class Patient {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO clients(first_name, last_name, birthdate, doctorid) VALUES (:first_name, :last_name, :birthdate, :doctorid)";
+      String sql = "INSERT INTO clients(first_name, last_name, birthdate, stylistid) VALUES (:first_name, :last_name, :birthdate, :stylistid)";
       this.id = (int) con.createQuery(sql, true)
       .addParameter("first_name", this.first_name)
       .addParameter("last_name", this.last_name)
       .addParameter("birthdate", this.birthdate)
-      .addParameter("doctorid", this.doctorId)
+      .addParameter("stylistid", this.stylistId)
       .executeUpdate()
       .getKey();
     }
