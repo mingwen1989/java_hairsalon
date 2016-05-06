@@ -25,14 +25,14 @@ public class Doctor {
   }
 
   public static List<Doctor> all() {
-    String sql = "SELECT * FROM doctors ORDER BY last_name ASC";
+    String sql = "SELECT * FROM stylists ORDER BY last_name ASC";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Doctor.class);
     }
   }
 
   public Integer countPatients() {
-    String sql = "SELECT COUNT(doctorid) FROM patients WHERE doctorid =:id";
+    String sql = "SELECT COUNT(doctorid) FROM clients WHERE doctorid =:id";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql)
       .addParameter("id", this.id)
@@ -42,7 +42,7 @@ public class Doctor {
 
   public List<Patient> getPatients() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM patients where doctorid=:id";
+      String sql = "SELECT * FROM clients where doctorid=:id";
       return con.createQuery(sql)
       .addParameter("id", this.id)
       .executeAndFetch(Patient.class);
@@ -51,7 +51,7 @@ public class Doctor {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO doctors(first_name, last_name) VALUES (:first_name, :last_name)";
+      String sql = "INSERT INTO stylists(first_name, last_name) VALUES (:first_name, :last_name)";
       this.id = (int) con.createQuery(sql, true)
       .addParameter("first_name", this.first_name)
       .addParameter("last_name", this.last_name)
@@ -62,7 +62,7 @@ public class Doctor {
 
   public static Doctor find(int id) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM doctors where id=:id";
+      String sql = "SELECT * FROM stylists where id=:id";
       return con.createQuery(sql)
       .addParameter("id", id)
       .executeAndFetchFirst(Doctor.class);

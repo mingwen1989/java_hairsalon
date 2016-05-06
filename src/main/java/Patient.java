@@ -52,7 +52,7 @@ public class Patient {
   }
 
   public static List<Patient> all() {
-    String sql = "SELECT * FROM patients ORDER BY last_name ASC";
+    String sql = "SELECT * FROM clients ORDER BY last_name ASC";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Patient.class);
     }
@@ -60,7 +60,7 @@ public class Patient {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO patients(first_name, last_name, birthdate, doctorid) VALUES (:first_name, :last_name, :birthdate, :doctorid)";
+      String sql = "INSERT INTO clients(first_name, last_name, birthdate, doctorid) VALUES (:first_name, :last_name, :birthdate, :doctorid)";
       this.id = (int) con.createQuery(sql, true)
       .addParameter("first_name", this.first_name)
       .addParameter("last_name", this.last_name)
@@ -73,7 +73,7 @@ public class Patient {
 
   public static Patient find(int id) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM patients where id=:id";
+      String sql = "SELECT * FROM clients where id=:id";
       Patient patient = con.createQuery(sql)
       .addParameter("id", id)
       .executeAndFetchFirst(Patient.class);
