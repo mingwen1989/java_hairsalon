@@ -1,0 +1,10 @@
+<h1>$stylist.getFirstName() $stylist.getLastName()</h1>
+<h3>Clients</h3>
+<ol>
+#foreach($client in $stylist.getClients())
+  <li>$client.getLastName(), $client.getFirstName()
+  <ul><li><span style="font-weight: bold;">Date of Birth:</span> $client.formatBirthday()</li>
+  </ul></li>
+  <hr>
+#end
+</ol>

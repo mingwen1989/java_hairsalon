@@ -1,0 +1,9 @@
+<h1>Clients:</h1>
+
+<ul>
+  #foreach($stylist in $clients)
+   <li>$stylist.getLastName(), $stylist.getFirstName()</li>
+  #end
+</ul>
+
+<a href="/clients/new">Add a New Client</a>
