@@ -104,50 +104,10 @@ ALTER SEQUENCE patients_id_seq OWNED BY clients.id;
 
 
 --
--- Name: specialties; Type: TABLE; Schema: public; Owner: MW
---
-
-CREATE TABLE specialties (
-    id integer NOT NULL,
-    specialty character varying
-);
-
-
-ALTER TABLE specialties OWNER TO "MW";
-
---
--- Name: specialties_id_seq; Type: SEQUENCE; Schema: public; Owner: MW
---
-
-CREATE SEQUENCE specialties_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE specialties_id_seq OWNER TO "MW";
-
---
--- Name: specialties_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: MW
---
-
-ALTER SEQUENCE specialties_id_seq OWNED BY specialties.id;
-
-
---
 -- Name: id; Type: DEFAULT; Schema: public; Owner: MW
 --
 
 ALTER TABLE ONLY clients ALTER COLUMN id SET DEFAULT nextval('patients_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: MW
---
-
-ALTER TABLE ONLY specialties ALTER COLUMN id SET DEFAULT nextval('specialties_id_seq'::regclass);
 
 
 --
@@ -186,28 +146,6 @@ SELECT pg_catalog.setval('patients_id_seq', 10, true);
 
 
 --
--- Data for Name: specialties; Type: TABLE DATA; Schema: public; Owner: MW
---
-
-COPY specialties (id, specialty) FROM stdin;
-1	Optometry
-2	Orthopedics
-3	Pediatrics
-4	Dermatology
-5	Podiatry
-6	Neurology
-7	Anesthesiology
-\.
-
-
---
--- Name: specialties_id_seq; Type: SEQUENCE SET; Schema: public; Owner: MW
---
-
-SELECT pg_catalog.setval('specialties_id_seq', 7, true);
-
-
---
 -- Data for Name: stylists; Type: TABLE DATA; Schema: public; Owner: MW
 --
 
@@ -238,14 +176,6 @@ ALTER TABLE ONLY stylists
 
 ALTER TABLE ONLY clients
     ADD CONSTRAINT patients_pkey PRIMARY KEY (id);
-
-
---
--- Name: specialties_pkey; Type: CONSTRAINT; Schema: public; Owner: MW
---
-
-ALTER TABLE ONLY specialties
-    ADD CONSTRAINT specialties_pkey PRIMARY KEY (id);
 
 
 --
