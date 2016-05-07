@@ -15,8 +15,8 @@ Simple hair salon app that allows you to add and display a listing of stylists a
 
   Clone the repo.  
   Restore the database file  
-    1. Connect to psql and run '# CREATE DATABASE hair_salon'  
-    2. Restore the included hair_salon.sql file by running 'psql hair_salon < hair_salon.sql' in bash  
+  &nbsp;&nbsp;1. Connect to psql and run '# CREATE DATABASE hair_salon'  
+  &nbsp;&nbsp;2. Restore the included hair_salon.sql file by running 'psql hair_salon < hair_salon.sql' in bash  
   Navigate to the project directory.  
   Run a instance of the gradle web server with 'gradle run'.  
   Navigate to localhost:4567 to view the app in action.
