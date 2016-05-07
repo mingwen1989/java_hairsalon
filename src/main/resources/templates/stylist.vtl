@@ -3,8 +3,6 @@
 <ol>
 #foreach($client in $stylist.getClients())
   <li>$client.getLastName(), $client.getFirstName()
-  <ul><li><span style="font-weight: bold;">Date of Birth:</span> $client.formatBirthday()</li>
-  </ul></li>
   <hr>
 #end
 </ol>

@@ -55,10 +55,9 @@ public class App {
 
       String firstName = request.queryParams("firstName");
       String lastName = request.queryParams("lastName");
-      String birthdate = request.queryParams("birthday");
       int stylistId = Integer.parseInt(request.queryParams("stylist"));
 
-      Client newClient = new Client(firstName, lastName, birthdate, stylistId);
+      Client newClient = new Client(firstName, lastName, stylistId);
       newClient.save();
 
       model.put("template", "templates/client-success.vtl");

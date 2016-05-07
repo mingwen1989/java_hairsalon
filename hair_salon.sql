@@ -41,7 +41,6 @@ CREATE TABLE clients (
     id integer NOT NULL,
     first_name character varying,
     last_name character varying,
-    birthdate character varying,
     stylistid integer
 );
 
@@ -121,13 +120,14 @@ ALTER TABLE ONLY stylists ALTER COLUMN id SET DEFAULT nextval('doctors_id_seq'::
 -- Data for Name: clients; Type: TABLE DATA; Schema: public; Owner: MW
 --
 
-COPY clients (id, first_name, last_name, birthdate, stylistid) FROM stdin;
-1	John	Doe	1985-05-06	1
-4	Margret	Ann	1974-08-12	3
-2	Randel	Cobb	1995-03-21	2
-3	Mourice	Jean-Lucas	1987-07-05	1
-5	Darren	Marks	1979-09-09	5
-10	Margaret	Thatcher	1954-08-09	5
+COPY clients (id, first_name, last_name, stylistid) FROM stdin;
+1	John	Doe	1
+4	Margret	Ann	3
+2	Randel	Cobb	2
+3	Mourice	Jean-Lucas	1
+5	Darren	Marks	5
+10	Margaret	Thatcher	5
+11	Napolean	Bonaparte	11
 \.
 
 
@@ -135,14 +135,14 @@ COPY clients (id, first_name, last_name, birthdate, stylistid) FROM stdin;
 -- Name: doctors_id_seq; Type: SEQUENCE SET; Schema: public; Owner: MW
 --
 
-SELECT pg_catalog.setval('doctors_id_seq', 10, true);
+SELECT pg_catalog.setval('doctors_id_seq', 11, true);
 
 
 --
 -- Name: patients_id_seq; Type: SEQUENCE SET; Schema: public; Owner: MW
 --
 
-SELECT pg_catalog.setval('patients_id_seq', 10, true);
+SELECT pg_catalog.setval('patients_id_seq', 11, true);
 
 
 --
@@ -159,6 +159,7 @@ COPY stylists (id, first_name, last_name) FROM stdin;
 8	Scott	Fitzgerald
 9	Douglas	MacArthur
 10	Robert	Fitzgerald
+11	Steve	Wozniak
 \.
 
 

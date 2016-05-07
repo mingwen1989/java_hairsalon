@@ -10,12 +10,10 @@ public class Client {
   private String first_name;
   private String last_name;
   private int stylistId;
-  private String birthdate;
 
-  public Client(String first_name, String last_name, String birthdate, int stylistId) {
+  public Client(String first_name, String last_name, int stylistId) {
     this.first_name = first_name;
     this.last_name = last_name;
-    this.birthdate = birthdate;
     this.stylistId = stylistId;
 
   }
@@ -35,21 +33,6 @@ public class Client {
   public int getStylistId() {
     return stylistId;
   }
-  public String getBirthdate() {
-    return birthdate;
-  }
-
-  public String formatBirthday(){
-    SimpleDateFormat fromUser = new SimpleDateFormat("yyyy-MM-dd");
-    SimpleDateFormat myFormat = new SimpleDateFormat("MMM dd yyyy");
-    try {
-      String reformattedStr = myFormat.format(fromUser.parse(birthdate));
-      return reformattedStr;
-    } catch (ParseException e) {
-      return "broken";
-    }
-
-  }
 
   public static List<Client> all() {
     String sql = "SELECT * FROM clients ORDER BY last_name ASC";
@@ -60,11 +43,10 @@ public class Client {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO clients(first_name, last_name, birthdate, stylistid) VALUES (:first_name, :last_name, :birthdate, :stylistid)";
+      String sql = "INSERT INTO clients(first_name, last_name, stylistid) VALUES (:first_name, :last_name, :stylistid)";
       this.id = (int) con.createQuery(sql, true)
       .addParameter("first_name", this.first_name)
       .addParameter("last_name", this.last_name)
-      .addParameter("birthdate", this.birthdate)
       .addParameter("stylistid", this.stylistId)
       .executeUpdate()
       .getKey();

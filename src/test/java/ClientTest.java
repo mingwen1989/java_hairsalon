@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import org.sql2o.*;
 import java.util.List;
 
-public class ClientTest { 
+public class ClientTest {
 
   @Before
   public void setUp() {
@@ -23,54 +23,54 @@ public class ClientTest {
   }
   @Test
   public void clients_instantiatesCorrectly_true() {
-    Client testClient = new Client("Jane", "Doe", "1985-05-06", 1);
+    Client testClient = new Client("Jane", "Doe", 1);
     assertEquals(true, testClient instanceof Client);
   }
-  // @Test
-  // public void getId_clientsInstantiateWithAnID_1() {
-  //   Client testClient = new Client("Jane", "Doe", "1985-05-06", 1);
-  //   testClient.save();
-  //   assertEquals(1, testClient.getStylistId());
-  // }
+  @Test
+  public void getId_clientsInstantiateWithAnID_1() {
+    Client testClient = new Client("Jane", "Doe", 1);
+    testClient.save();
+    assertEquals(1, testClient.getStylistId());
+  }
   // @Test
   // public void all_emptyAtFirst() {
   //   assertEquals(Client.all().size(), 0);
   // }
-  //
+
   // @Test
   // public void equals_returnsTrueIfNamesAretheSame() {
-  //   Client firstClient = new Client("Jane", "Doe", "1985-05-06", 1);
-  //   Client secondClient = new Client("Jane", "Doe", "1985-05-06", 1);
+  //   Client firstClient = new Client("Jane", "Doe", 1);
+  //   Client secondClient = new Client("Jane", "Doe", 1);
   //   assertTrue(firstClient.equals(secondClient));
   // }
   // @Test
   // public void find_findsClientInDatabase_true() {
-  //   Client testClient = new Client("Jane", "Doe", "1985-05-06", 1);
+  //   Client testClient = new Client("Jane", "Doe", 1);
   //   testClient.save();
   //   Client savedClient = Client.find(testClient.getId());
   //   assertTrue(testClient.getFirstName().equals(savedClient.getFirstName()));
   // }
   // @Test
   // public void save_assignsIdToObject() {
-  //   Client testClient = new Client("Jane", "Doe", "1985-05-06", 1);
+  //   Client testClient = new Client("Jane", "Doe", 1);
   //   testClient.save();
   //   Client savedClient = Client.all().get(0);
   //   assertEquals(testClient.getId(), savedClient.getId());
   // }
   // @Test
   // public void save_returnsTrueIfClientsAretheSame() {
-  //   Client testClient = new Client("Jane", "Doe", "1985-05-06", 1);
+  //   Client testClient = new Client("Jane", "Doe", 1);
   //   testClient.save();
   //   assertTrue(Client.all().get(0).getClient().equals(testClient.getClient()));
   // }
   // @Test
   // public void save_savesRestaurantIdIntoDB_true() {
-  //   Restaurant testRestaurant = new Client("Jane", "Doe", "1985-05-06", 1);
-  //   testRestaurant.save();
-  //   Client testClient = new Client("Jane", "Doe", "1985-05-06", 1);
+  //   Stylist testStylist = new Client("Jane", "Doe", 1);
+  //   testStylist.save();
+  //   Client testClient = new Client("Jane", "Doe", 1);
   //   testClient.save();
   //   Client savedClient = Client.find(testClient.getId());
-  //   assertEquals(savedClient.getRestaurantId(), testRestaurant.getId());
+  //   assertEquals(savedClient.getStylistId(), testStylist.getId());
   // }
   // @Test
   // public void find_returnsNullWhenNoClientFound_null() {
