@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import org.sql2o.*;
 import java.util.List;
 
-public class ClientTest {
+public class ClientTest { 
 
   @Before
   public void setUp() {
@@ -26,54 +26,54 @@ public class ClientTest {
     Client testClient = new Client("Jane", "Doe", "1985-05-06", 1);
     assertEquals(true, testClient instanceof Client);
   }
-  @Test
-  public void getId_clientsInstantiateWithAnID_1() {
-    Client testClient = new Client("Jane", "Doe", "1985-05-06", 1);
-    testClient.save();
-    assertEquals(1, testClient.getStylistId());
-  }
+  // @Test
+  // public void getId_clientsInstantiateWithAnID_1() {
+  //   Client testClient = new Client("Jane", "Doe", "1985-05-06", 1);
+  //   testClient.save();
+  //   assertEquals(1, testClient.getStylistId());
+  // }
   // @Test
   // public void all_emptyAtFirst() {
-  //   assertEquals(Review.all().size(), 0);
+  //   assertEquals(Client.all().size(), 0);
   // }
   //
   // @Test
   // public void equals_returnsTrueIfNamesAretheSame() {
-  //   Review firstReview = new Review("This is a good restaurant.", 1, 4);
-  //   Review secondReview = new Review("This is a good restaurant.", 1, 4);
-  //   assertTrue(firstReview.equals(secondReview));
+  //   Client firstClient = new Client("Jane", "Doe", "1985-05-06", 1);
+  //   Client secondClient = new Client("Jane", "Doe", "1985-05-06", 1);
+  //   assertTrue(firstClient.equals(secondClient));
   // }
   // @Test
-  // public void find_findsReviewInDatabase_true() {
-  //   Review testReview = new Review("This is a good restaurant.", 1, 4);
-  //   testReview.save();
-  //   Review savedReview = Review.find(testReview.getId());
-  //   assertTrue(testReview.getReview().equals(savedReview.getReview()));
+  // public void find_findsClientInDatabase_true() {
+  //   Client testClient = new Client("Jane", "Doe", "1985-05-06", 1);
+  //   testClient.save();
+  //   Client savedClient = Client.find(testClient.getId());
+  //   assertTrue(testClient.getFirstName().equals(savedClient.getFirstName()));
   // }
   // @Test
   // public void save_assignsIdToObject() {
-  //   Review testReview = new Review("This is a good restaurant.", 1, 4);
-  //   testReview.save();
-  //   Review savedReview = Review.all().get(0);
-  //   assertEquals(testReview.getId(), savedReview.getId());
+  //   Client testClient = new Client("Jane", "Doe", "1985-05-06", 1);
+  //   testClient.save();
+  //   Client savedClient = Client.all().get(0);
+  //   assertEquals(testClient.getId(), savedClient.getId());
   // }
   // @Test
-  // public void save_returnsTrueIfReviewsAretheSame() {
-  //   Review testReview = new Review("This is a good restaurant.", 1, 4);
-  //   testReview.save();
-  //   assertTrue(Review.all().get(0).getReview().equals(testReview.getReview()));
+  // public void save_returnsTrueIfClientsAretheSame() {
+  //   Client testClient = new Client("Jane", "Doe", "1985-05-06", 1);
+  //   testClient.save();
+  //   assertTrue(Client.all().get(0).getClient().equals(testClient.getClient()));
   // }
   // @Test
   // public void save_savesRestaurantIdIntoDB_true() {
-  //   Restaurant testRestaurant = new Restaurant("Matador", "Mexican", "Portland");
+  //   Restaurant testRestaurant = new Client("Jane", "Doe", "1985-05-06", 1);
   //   testRestaurant.save();
-  //   Review testReview = new Review("This is a good restaurant.", testRestaurant.getId(), 4);
-  //   testReview.save();
-  //   Review savedReview = Review.find(testReview.getId());
-  //   assertEquals(savedReview.getRestaurantId(), testRestaurant.getId());
+  //   Client testClient = new Client("Jane", "Doe", "1985-05-06", 1);
+  //   testClient.save();
+  //   Client savedClient = Client.find(testClient.getId());
+  //   assertEquals(savedClient.getRestaurantId(), testRestaurant.getId());
   // }
   // @Test
-  // public void find_returnsNullWhenNoReviewFound_null() {
-  //   assertTrue(Review.find(999) == null);
+  // public void find_returnsNullWhenNoClientFound_null() {
+  //   assertTrue(Client.find(999) == null);
   // }
 }
