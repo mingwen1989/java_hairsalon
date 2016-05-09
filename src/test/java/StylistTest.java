@@ -53,15 +53,15 @@ public class StylistTest {
     Stylist savedStylist = Stylist.find(testStylist.getId());
     assertEquals(savedStylist.getFirstName(), testStylist.getFirstName());
   }
-  // @Test
-  // public void getClients_retrievesAllClientsFromDatabase() {
-  //   Stylist testStylist = new Stylist("John", "Smith");
-  //   testStylist.save();
-  //   Client firstClient = new Client("John", "Doe", "1985-05-06", testStylist.getId());
-  //   firstClient.save();
-  //   Client secondClient = new Client("Jane", "Doe", "1985-05-05", testStylist.getId());
-  //   secondClient.save();
-  //   Client[] reviews = new Client[] { firstClient, secondClient };
-  //   assertEquals(testStylist.getClients().size(), 2);
-  // }
+  @Test
+  public void getClients_retrievesAllClientsFromDatabase() {
+    Stylist testStylist = new Stylist("John", "Smith");
+    testStylist.save();
+    Client firstClient = new Client("John", "Doe", testStylist.getId());
+    firstClient.save();
+    Client secondClient = new Client("Jane", "Doe", testStylist.getId());
+    secondClient.save();
+    Client[] reviews = new Client[] { firstClient, secondClient };
+    assertEquals(testStylist.getClients().size(), 2);
+  }
 }
