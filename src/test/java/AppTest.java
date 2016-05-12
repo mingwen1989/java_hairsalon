@@ -43,13 +43,12 @@ public class AppTest extends FluentTest {
     submit(".btn");
     assertThat(pageSource()).contains("The new Stylist has been saved.");
   }
-  // @Test
-  // public void doctorIsSavedTest(){
-  //   Doctor myDoctor = new Doctor("John Smith", "Endocrinologist");
-  //   myDoctor.save();
-  //   System.out.println(myDoctor.getId());
-  //   String doctorPath = String.format("http://localhost:4567/doctors/%d", myDoctor.getId());
-  //   goTo(doctorPath);
-  //   assertThat(pageSource()).contains("John Smith");
-  // }
+  @Test
+  public void StylistIsSavedTest(){
+    Stylist myStylist = new Stylist("Robert", "Fitzgerald");
+    myStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
+    goTo(stylistPath);
+    assertThat(pageSource()).contains("Robert Fitzgerald");
+  }
 }
