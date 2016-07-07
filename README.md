@@ -6,17 +6,17 @@
 
 Simple hair salon app that allows you to add and display a listing of stylists and each stylist's clients.
 
-  In PSQL:  
-  CREATE DATABASE hair_salon;  
-  CREATE TABLE stylists (id serial PRIMARY KEY, first_name varchar, last_name varchar);  
-  CREATE TABLE clients (id serial PRIMARY KEY, first_name varchar, last_name varchar, stylistid int);  
+    In PSQL:  
+      CREATE DATABASE hair_salon;  
+      CREATE TABLE stylists (id serial PRIMARY KEY, first_name varchar, last_name varchar);  
+      CREATE TABLE clients (id serial PRIMARY KEY, first_name varchar, last_name varchar, stylistid int);  
 
 ## Setup and Installation Requirements
 
   Clone the repo.  
   Restore the database file  
-  &nbsp;&nbsp;1. Connect to psql and run '# CREATE DATABASE hair_salon'  
-  &nbsp;&nbsp;2. Restore the included hair_salon.sql file by running 'psql hair_salon < hair_salon.sql' in bash  
+  Connect to psql and run '# CREATE DATABASE hair_salon'  
+  Restore the included hair_salon.sql file by running 'psql hair_salon < hair_salon.sql' in bash  
   Navigate to the project directory.  
   Run a instance of the gradle web server with 'gradle run'.  
   Navigate to localhost:4567 to view the app in action.
